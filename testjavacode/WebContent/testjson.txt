@@ -1,0 +1,69 @@
+﻿{
+  "data": {
+    "total": 6,
+    "rdm": 1,
+    "data": {
+      "8888": [
+        {
+          "cid": 8888,
+          "clickUrl": "http://www.baidu.com",
+          "intday": 1433952000,
+          "intime": 1434000786762,
+          "title": "傻逼才是糖尿病糖尿病糖尿病糖尿病糖尿病糖尿病",
+          "type": "测试",
+          "url": "http://www.baidu.com"
+        }
+      ],
+      "1234": [
+        {
+          "cid": 1234,
+          "clickUrl": "http://www.baidu.com",
+          "intday": 1433779200,
+          "intime": 1433846117669,
+          "title": "糖尿病的具体症状",
+          "type": "测试",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "cid": 1234,
+          "clickUrl": "http://www.baidu.com",
+          "intday": 1433779200,
+          "intime": 1433846134158,
+          "title": "糖尿病能吃牛肉干吗",
+          "type": "测试",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "cid": 1234,
+          "clickUrl": "http://www.baidu.com",
+          "intday": 1433779200,
+          "intime": 1433846152889,
+          "title": "得了糖尿病会不会要人命",
+          "type": "测试",
+          "url": "http://www.baidu.com"
+        }
+      ],
+      "2345": [
+        {
+          "cid": 2345,
+          "clickUrl": "http://www.baidu.com",
+          "intday": 1433779200,
+          "intime": 1433846306710,
+          "title": "糖尿病是傻逼",
+          "type": "测试",
+          "url": "http://www.baidu.com"
+        },
+        {
+          "cid": 2345,
+          "clickUrl": "http://www.baidu.com",
+          "intday": 1433779200,
+          "intime": 1433846317820,
+          "title": "傻逼才是糖尿病",
+          "type": "测试",
+          "url": "http://www.baidu.com"
+        }
+      ]
+    }
+  },
+  "code": 0
+}
