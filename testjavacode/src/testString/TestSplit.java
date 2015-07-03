@@ -19,5 +19,7 @@ public class TestSplit {
 		String s3 = "a b c";
 		String[] strArr = s.split(" ", -1);
 		System.out.println(Arrays.asList(strArr));
+		String ss = null;
+		System.out.println(ss.isEmpty());
 	}
 }
