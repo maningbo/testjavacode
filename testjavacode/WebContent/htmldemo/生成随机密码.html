@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>生成随机密码</title>
+ </head>
+ <body>
+  <input type="button" value="点击生成密码" id="creatpwd"/>
+  <input type="text" id='pwd'/>
+  <script type="text/javascript">
+	var chars = [
+				'0','1','2','3','4','5','6','7','8','9',
+				'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+				'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
+				'~','@','!','#','$','%','^','&','*','(',')','-','+','_','='
+				];
+	function generateMixed(n) {
+		 var res = "";
+		 for(var i = 0; i < n ; i ++) {
+			 var id = Math.ceil(Math.random()*76);
+			 res += chars[id];
+		 }
+		 return res;
+	}
+	document.getElementById("creatpwd").onclick=function(){
+		document.getElementById("pwd").value=generateMixed(10);
+	};
+Number.prototype.pad2 =function(){
+	return this>9?this:'0'+this;
+};
+Date.prototype.format=function (format) {     
+	var it=new Date();      
+	var it=this;      
+	var M=it.getMonth()+1,H=it.getHours(),m=it.getMinutes(),d=it.getDate(),s=it.getSeconds();      
+	var n={ 'yyyy': it.getFullYear()      
+	        ,'MM': M.pad2(),'M': M      
+	        ,'dd': d.pad2(),'d': d      
+	        ,'HH': H.pad2(),'H': H      
+	        ,'mm': m.pad2(),'m': m      
+	        ,'ss': s.pad2(),'s': s      
+	 };      
+	    return format.replace(/([a-zA-Z]+)/g,function (s,$1) { return n[$1]; });      
+	};
+alert(new Date().format('yyyy-MM-dd HH:mm:ss')+"");
+<!--
+
+var caution = false
+
+function setCookie(name, value, expires, path, domain, secure) {
+
+var curCookie = name + "=" + escape(value) +
+
+((expires) ? "; expires=" + expires.toGMTString() : "") +
+
+((path) ? "; path=" + path : "") +
+
+((domain) ? "; domain=" + domain : "") +
+
+((secure) ? "; secure" : "")
+
+if (!caution || (name + "=" + escape(value)).length <= 4000)
+
+document.cookie = curCookie
+
+else
+
+if (confirm("Cookie exceeds 4KB and will be cut!"))
+
+document.cookie = curCookie
+
+}
+
+function getCookie(name) {
+
+var prefix = name + "="
+
+var cookieStartIndex = document.cookie.indexOf(prefix)
+
+if (cookieStartIndex == -1)
+
+return null
+
+var cookieEndIndex = document.cookie.indexOf(";", cookieStartIndex + prefix.length)
+
+if (cookieEndIndex == -1)
+
+cookieEndIndex = document.cookie.length
+
+return (document.cookie.substring(cookieStartIndex + prefix.length, cookieEndIndex))
+
+}
+
+function deleteCookie(name, path, domain) {
+
+if (getCookie(name)) {
+
+document.cookie = name + "=" +
+
+((path) ? "; path=" + path : "") +
+
+((domain) ? "; domain=" + domain : "") +
+
+"; expires=Thu, 01-Jan-70 00:00:01 GMT"
+
+}
+
+}
+
+function fixDate(date) {
+
+var base = new Date(0)
+
+var skew = base.getTime()
+
+if (skew > 0)
+
+date.setTime(date.getTime() - skew)
+
+}
+
+var now = new Date()
+
+fixDate(now)
+
+now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000)
+
+var visits = getCookie("counter")
+
+if (!visits)
+
+visits = 1
+
+else
+
+visits = parseInt(visits) + 1
+
+setCookie("counter", visits, now)
+
+document.write("欢迎光临本站，您是第" + visits + "访问者！")
+
+// -->
+  </script>
+ </body>
+</html>
