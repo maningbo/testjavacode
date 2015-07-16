@@ -14,12 +14,10 @@ public class TestSplit {
 
 	public static void main(String[] args) {
 		String s = "baidu a google bing";
-		String s1 = "a b c";
-		String s2 = "a b c";
-		String s3 = "a b c";
 		String[] strArr = s.split(" ", -1);
 		System.out.println(Arrays.asList(strArr));
-		String ss = null;
+		String ss = "";
+//		String ss = null;
 		System.out.println(ss.isEmpty());
 	}
 }
