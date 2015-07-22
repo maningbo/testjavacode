@@ -12,5 +12,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/extralibs/jsp-api.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/extralibs/servlet-api.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/extralibs/guava-r09.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/extralibs/mysql-connector-java-5.1.36-bin.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -190,7 +190,7 @@ public class Lunar {
  
     public static void main(String[] args) {
     	Calendar cal=Calendar.getInstance();
-    	cal.set(1990, 7, 2);
+    	cal.set(1989, 0, 24);
     	SimpleDateFormat sdf=new SimpleDateFormat("yyyy年MM月dd日");
     	cal.setTimeZone(TimeZone.getDefault());
     	System.out.println("公历日期:"+sdf.format(cal.getTime()));

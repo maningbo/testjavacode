@@ -228,6 +228,6 @@ public class LunarCalendar {
 
 	public static void main(String[] args) throws ParseException {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-		System.out.println(new LunarCalendar(sdf.parse("19900802")).toString());
+		System.out.println(new LunarCalendar(sdf.parse("19890124")).toString());
 	}
 }
