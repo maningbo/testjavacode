@@ -1,5 +1,6 @@
 package testJDBC;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,10 +23,20 @@ public class TestReadProperties {
 			p = new Properties();
 			fis = new FileInputStream(TestReadProperties.class.getResource(".").getPath()+"db.properties");
 //			fis = TestReadProperties.class.getClassLoader().getResourceAsStream("db.properties");
-			System.out.println(TestReadProperties.class.getResource(".").getPath());
-			System.out.println(TestReadProperties.class.getResource("/").getPath());
 			p.load(fis);
 			System.out.println(p.getProperty("db.driver", ""));
+			//测试获取项目的绝对路径开始
+			//获取TestReadProperties类的绝对路径
+			System.out.println(TestReadProperties.class.getResource(".").getPath());
+			//获取TestReadProperties类的绝对路径
+			System.out.println(TestReadProperties.class.getResource("").getPath());
+			//获取ClassPath的绝对路径
+			System.out.println(TestReadProperties.class.getResource("/").getPath());
+			//获取项目的绝对路径，tomcat下获取的为tomcat安装路径(测试环境时tomcat6)，
+			//还需具体测试看，可能是安装目录下的bin目录
+			System.out.println((new File("")).getAbsolutePath());
+			//jsp与servlet使用getServletContext().getRealPath("/")获得项目根目录绝对路径
+			//测试获取项目的绝对路径结束
 		} catch (IOException e) {
 			e.printStackTrace();
 		}finally{
