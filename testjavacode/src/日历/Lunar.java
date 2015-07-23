@@ -2,8 +2,6 @@ package 日历;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.*;
 
 /**
@@ -21,6 +19,9 @@ public class Lunar {
     private boolean leap;
     final static String chineseNumber[] = {"一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二"};
     static SimpleDateFormat chineseDateFormat = new SimpleDateFormat("yyyy年MM月dd日");
+    /**
+	 * 农历数据， 1901 ~ 2100 年之间正确
+	 */
     final static long[] lunarInfo = new long[]
     {0x04bd8, 0x04ae0, 0x0a570, 0x054d5, 0x0d260, 0x0d950, 0x16554, 0x056a0, 0x09ad0, 0x055d2,
      0x04ae0, 0x0a5b6, 0x0a4d0, 0x0d250, 0x1d255, 0x0b540, 0x0d6a0, 0x0ada2, 0x095b0, 0x14977,
@@ -72,7 +73,7 @@ public class Lunar {
     }
  
     //====== 传回农历 y年的生肖
-    final public String animalsYear() {
+    final public String getShuXiang() {
         final String[] Animals = new String[]{"鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊", "猴", "鸡", "狗", "猪"};
         return Animals[(year - 4) % 12];
     }
@@ -85,7 +86,7 @@ public class Lunar {
     }
  
     //====== 传入 offset 传回干支, 0=甲子
-    final public String cyclical() {
+    final public String getGanZhi() {
         int num = year - 1900 + 36;
         return (cyclicalm(num));
     }
@@ -95,11 +96,11 @@ public class Lunar {
      * yearCyl3:农历年与1864的相差数 ?
      * monCyl4:从1900年1月31日以来,闰月数
      * dayCyl5:与1900年1月31日相差的天数,再加40 ?
-     *
      * @param cal
      * @return
      */
-    public Lunar(Calendar cal) {
+    @SuppressWarnings("unused")
+	public Lunar(Calendar cal) {
         int yearCyl, monCyl, dayCyl;
         int leapMonth = 0;
         Date baseDate = null;
@@ -184,31 +185,25 @@ public class Lunar {
     }
  
     public String toString() {
-        return year + "年" + (leap ? "闰" : "") + chineseNumber[month - 1] + "月" + getChinaDayString(day);
+        return year + "年" + (leap ? "闰" : "") + chineseNumber[month - 1] + "月" + getChinaDayString(day) + " " + getGanZhi() + " " + getShuXiang();
     }
     
  
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
+    	SimpleDateFormat sdf=new SimpleDateFormat("yyyy年MM月dd日 E");
     	Calendar cal=Calendar.getInstance();
-    	cal.set(1989, 0, 24);
-    	SimpleDateFormat sdf=new SimpleDateFormat("yyyy年MM月dd日");
+    	//使用这种方式农历日期计算存在问题,例如1990-08-02计算为1990年六月十一，
+    	//cal.setTime(sdf.parse("1990年08月02日"));
+    	String datestr = "1990-08-02";
+    	String[] datearray = datestr.split("-");
+    	cal.set(Integer.parseInt(datearray[0]), Integer.parseInt(datearray[1])-1, Integer.parseInt(datearray[2]));//应该使用这种方式，农历日期计算没有问题
     	cal.setTimeZone(TimeZone.getDefault());
     	System.out.println("公历日期:"+sdf.format(cal.getTime()));
     	Lunar lunar=new Lunar(cal);
-    	System.out.print("农历日期:");
-    	System.out.print(lunar.year+"年 ");
-    	System.out.print(lunar.month+"月 ");
-    	System.out.print(getChinaDayString(lunar.day));
-    	System.out.println("*************");
-    	System.out.println(lunar);
+    	System.out.println("农历日期:"+lunar);
+    	System.out.println("==========================================");
+    	Calendar today = Calendar.getInstance();
+    	Lunar lunar1 = new Lunar(today);
+    	System.out.println("北京时间：" + chineseDateFormat.format(today.getTime()) + "　农历" + lunar1);
     }
- 
-    /*
- public static void main(String[] args) throws ParseException {
-  Calendar today = Calendar.getInstance();
-  today.setTime(chineseDateFormat.parse("2007年11月6日"));
-  Lunar lunar = new Lunar(today);
-  System.out.println("北京时间：" + chineseDateFormat.format(today.getTime()) + "　农历" + lunar);
-   }
-    */
 }
