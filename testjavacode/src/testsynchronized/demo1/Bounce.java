@@ -48,7 +48,17 @@ class BounceFrame extends JFrame {
 		JPanel buttonPanel = new JPanel();
 		addButton(buttonPanel, "Start", new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				addBall();
+				try {
+					addBall();
+					Thread.sleep(50);
+					addBall();
+					Thread.sleep(50);
+					addBall();
+					Thread.sleep(50);
+					addBall();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			}
 		});
 
