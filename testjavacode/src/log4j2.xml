@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="OFF">
+	<appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<!-- 控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch） -->
+			<ThresholdFilter level="FATAL" onMatch="ACCEPT" onMismatch="DENY"/>
+			<PatternLayout
+				pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} %class{36} %M %L - %msg%n" />
+			<!-- pattern格式说明： %d是日期，%t(thread)是线程名称，%-5level是日志级别名称，
+			%logger{36}创建时设定的（LogManager.getLogger("com.feelingware.log");）如果为某个类则显示类的包名，
+			%class{36}表示调用logger的类的全名（包含包路径），%M表示调用logger的方法名，
+			%msg是日志信息，%n表示换行 -->
+		</Console>
+		
+		<!--文件会打印出所有信息，这个log每次运行程序会自动清空，由append属性决定（false，true），
+		这个也挺有用的，适合临时测试用-->
+        <File name="log" fileName="log/test.log" append="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} %class{36} %M %L - %msg%n"/>
+        </File>
+        
+        <!--这个会打印出所有的信息，每次大小超过size，
+		则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档-->
+        <RollingFile name="RollingFileSize" fileName="log/feelingware.log" 
+                     filePattern="log/size/$${date:yyyy-MM}/feelingware-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} %class{36} %M %L - %msg%n"/>
+            <Policies>
+            	<TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="10KB"/>
+	            <!-- 50MB，5KB -->
+            </Policies>
+            <!-- 保存的文件个数，默认为7 -->
+            <DefaultRolloverStrategy max="5"/>
+        </RollingFile>
+        
+        <!-- 按日期进行归档 -->
+        <RollingFile name="RollingFileDate" fileName="log/feelingware2.log" 
+                     filePattern="log/date/$${date:yyyy-MM}/feelingware-%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} %class{36} %M %L - %msg%n"/>
+        	<Policies>
+            	<TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy />
+	            <!-- 50MB，5KB -->
+            </Policies>
+        </RollingFile>
+	</appenders>
+	<loggers>
+		<!-- 零、首先介绍loggers标签，用于定义logger的lever和所采用的appender，
+		其中appender-ref必须为先前定义的 appenders的名称，例如，此处为Console。
+		那么log就会以appender所定义的输出格式来输出log。 -->
+		<!-- 一、 log4j定义了8个级别的log（除去OFF和ALL，可以说分为6个级别），
+		优先级从高到低依次为：OFF、FATAL、ERROR、WARN、INFO、DEBUG、TRACE、 ALL。
+		如果将log level设置在某一个级别上，那么比此级别优先级高的log都能打印出来。
+		例如，如果设置优先级为WARN，那么OFF、FATAL、ERROR、WARN 4个级别的log能正常输出，
+		而INFO、DEBUG、TRACE、 ALL级别的log则会被忽略。从我们实验的结果可以看出，
+		log4j默认的优先级为ERROR或者WARN（实际上是ERROR） -->
+		<!-- 二、 root标签为log的默认输出形式，如果一个类的log没有在loggers中明确指定其输出lever与格式，
+		那么就会采用root中定义的格式。 -->
+		<!-- 三、  additivity选项，如果设置为true（默认值）则com.feelingware.log的log会被打印两次，
+		第二次打印是由于com.feelingware.log同时也满足 root里面定义的trace -->
+		<!-- 四、 logger标签中name可以为某个包名，也可是自定义的字符串，
+		即LogManager.getLogger("com.feelingware.log")所指定的 -->
+		<!-- <logger name="com.feelingware.log" level="error" additivity="true">
+			<appender-ref ref="Console" />
+		</logger> -->
+		<root level="TRACE">
+			<appender-ref ref="Console" />
+			<!-- <appender-ref ref="log" /> -->
+			<appender-ref ref="RollingFileSize" />
+			<appender-ref ref="RollingFileDate" />
+		</root>
+	</loggers>
+</configuration> 
