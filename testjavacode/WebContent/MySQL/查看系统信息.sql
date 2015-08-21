@@ -7,3 +7,5 @@ SELECT VERSION();-- 查看版本号
 -- show processlist;-- 查看连接数详情列表
 
 select SUBSTRING_INDEX(host,':',1) as ip , count(*) from information_schema.processlist group by ip;
+
+SHOW VARIABLES LIKE 'character%'    -- 查看字符编码
