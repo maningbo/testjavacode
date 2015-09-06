@@ -24,6 +24,8 @@ public class TestList {
 		list.add("5");
 		list.add("6");
 		list.add("7");
+		list.add("1");
+		System.out.println(list.contains("1"));
 		System.out.println(list.size());
 		System.out.println(list.toString());
 		Collections.reverse(list);
