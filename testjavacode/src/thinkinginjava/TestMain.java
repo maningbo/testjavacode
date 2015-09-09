@@ -13,5 +13,14 @@ public class TestMain{
 		//System.out.println(System.getProperty("user.name"));
 		//System.out.println(System.getProperties());
 		System.out.println(System.getProperty("java.library.path"));
+		//\b单词边界
+		//\f换页符
+		//\r回车
+		//\n换行符
+		//\t制表符
+		//\"转义"
+		//\'应该没有这个
+		//\\转义 \
+		System.out.println("d\td\nd\rd\fd\\''''\\\b\"\\;/");
 	}
 }
