@@ -20,5 +20,7 @@ public class TestYunsuanfu {
 		//3的二进制=0000 0011 取反=1111 1100 再取补=1111 1101 所以 ~2=-3
 		//~2是单纯的取反  但是正好等于3的取反+1
 		//绝对值取反+1，负数就-1，再反过来就是取反的值了
+		System.out.println((double)(124/731));
+		System.out.println((double)124/731);
 	}
 }
