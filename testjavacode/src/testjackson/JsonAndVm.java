@@ -77,7 +77,7 @@ public class JsonAndVm {
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			// 需要注意的是这里的Map实际为一个LikedHashMap，即链式哈希表，可以按照读入顺序遍历
-			Map map = mapper.readValue(new File("D:/mnbsoftware/eclipse/workspace/testjavacode/WebContent/testjson.txt"), Map.class);
+			Map map = mapper.readValue(new File((new File("")).getAbsolutePath()+"\\WebContent\\testjson.txt"), Map.class);
 			System.out.println("data:"+map.get("data"));
 			System.out.println("code:"+map.get("code"));
 			System.out.println(mapper.writeValueAsString(map.get("data")));

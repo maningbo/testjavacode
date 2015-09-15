@@ -34,7 +34,7 @@ public class TestReadProperties {
 			System.out.println(TestReadProperties.class.getResource("/").getPath());
 			//获取项目的绝对路径，tomcat下获取的为tomcat安装路径(测试环境时tomcat6)，
 			//还需具体测试看，可能是安装目录下的bin目录
-			System.out.println((new File("")).getAbsolutePath());
+			System.out.println("项目根目录的绝对路径-----"+(new File("")).getAbsolutePath());
 			//jsp与servlet使用getServletContext().getRealPath("/")获得项目根目录绝对路径
 			//测试获取项目的绝对路径结束
 		} catch (IOException e) {
