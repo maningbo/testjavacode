@@ -1,6 +1,7 @@
 package testList;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
@@ -37,5 +38,24 @@ public class TestList {
 			}
 		}
 		System.out.println(list.toString());
+		list.subList(1, 3).clear();
+		System.out.println(list.toString());
+		System.out.println(list.subList(1, 3));
+		
+		//List To Collection
+		List<Manager> managers = new ArrayList<Manager>();
+		Manager m1 = new Manager(1, "xiaoming", "ddddd", "小明");
+		managers.add(m1);managers.add(m1);
+		Collection<Manager> c = managers;
+		Iterator<Manager> it =  c.iterator();
+		while (it.hasNext()) {
+			System.out.println(it.next().getLoginName());
+		}
+		
+		//Collection To List
+		List<Manager> managersFromCollection = (List<Manager>) c;
+		for (Manager manager : managersFromCollection) {
+			System.out.println(manager.getLoginName());
+		}
 	}
 }
