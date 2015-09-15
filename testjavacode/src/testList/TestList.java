@@ -53,6 +53,7 @@ public class TestList {
 		}
 		
 		//Collection To List
+		System.out.println(c.size());
 		List<Manager> managersFromCollection = (List<Manager>) c;
 		for (Manager manager : managersFromCollection) {
 			System.out.println(manager.getLoginName());
