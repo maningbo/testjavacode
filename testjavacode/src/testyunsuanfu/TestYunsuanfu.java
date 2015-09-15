@@ -22,5 +22,9 @@ public class TestYunsuanfu {
 		//绝对值取反+1，负数就-1，再反过来就是取反的值了
 		System.out.println((double)(124/731));
 		System.out.println((double)124/731);
+		System.out.println(3/4);
+		System.out.println(1/4);
+		System.out.println(-3/4);
+		System.out.println(-1/4);
 	}
 }
