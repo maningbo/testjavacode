@@ -1,4 +1,4 @@
-package designmode.decorator;
+package designpatterns.decorator;
 /**
  *  TestDecoratorDesignMode.java
  *  Description:

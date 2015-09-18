@@ -1,4 +1,4 @@
-package designmode.facade;
+package designpatterns.facade;
 /**
  *  Module1.java
  *  Description:
@@ -7,8 +7,8 @@ package designmode.facade;
  * 
  *  @author 马宁波
  */
-public class Module1 {
-	public void test1(){
-		System.out.println("调用Module1中的test1方法");
+public class Module2 {
+	public void test2(){
+		System.out.println("调用Module2中的test2方法");
 	}
 }

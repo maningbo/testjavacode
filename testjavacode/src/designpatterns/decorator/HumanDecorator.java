@@ -1,4 +1,4 @@
-package designmode.decorator;
+package designpatterns.decorator;
 /**
  *  HumanDecorator.java
  *  Description:

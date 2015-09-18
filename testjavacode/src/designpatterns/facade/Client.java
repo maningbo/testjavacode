@@ -1,4 +1,4 @@
-package designmode.facade;
+package designpatterns.facade;
 /**
  *  Client.java
  *  Description:
