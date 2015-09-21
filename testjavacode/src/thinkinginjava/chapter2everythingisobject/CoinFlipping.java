@@ -1,11 +1,11 @@
-package testyunsuanfu;
+package thinkinginjava.chapter2everythingisobject;
 
 import java.util.Random;
 
 /**
  *  CoinFlipping.java
  *  Description:
- *  
+ *  模拟抛硬币
  *  CreateDate: 2015年9月21日 上午8:28:22 
  * 
  *  @author 马宁波
