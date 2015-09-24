@@ -97,9 +97,11 @@ public class Human implements Cloneable,Serializable{
 					bis.close();
 				}
 				if(null!=oos){
+					oos.flush();
 					oos.close();
 				}
 				if(null!=bos){
+					bos.flush();
 					bos.close();
 				}
 			} catch (IOException e) {
