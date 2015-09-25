@@ -22,5 +22,6 @@ public class TestRandom {
 		for (int i = 0; i < 5; i++) {
 			System.out.println(UUID.randomUUID().toString().toUpperCase());
 		}
+		System.out.println(UUID.randomUUID().toString());
 	}
 }
