@@ -37,19 +37,16 @@ public class TestDecimalFormat {
 			X 前缀或后缀中使用的任何其它字符，用来引用前缀或后缀中的特殊字符。
 		 */
 		DecimalFormat df1 = new DecimalFormat("0.0");
-
 		DecimalFormat df2 = new DecimalFormat("#.#");
-
-		DecimalFormat df3 = new DecimalFormat("000.000");
-
-		DecimalFormat df4 = new DecimalFormat("###.###");
-
-		System.out.println(df1.format(12.34)); 
-
-		System.out.println(df2.format(12.34)); 
-
-		System.out.println(df3.format(12.34)); 
-
-		System.out.println(df4.format(12.34)); 
+		DecimalFormat df3 = new DecimalFormat("000.000￥");
+		DecimalFormat df4 = new DecimalFormat("###.###$");
+		DecimalFormat df5 = new DecimalFormat("0.0%");
+		DecimalFormat df6 = new DecimalFormat("0.#%");
+		System.out.println(df1.format(12.34));
+		System.out.println(df2.format(12.34));
+		System.out.println(df3.format(12.34));
+		System.out.println(df4.format(12.34));
+		System.out.println(df5.format(0.53));
+		System.out.println(df6.format(0.53));
 	}
 }
