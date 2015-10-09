@@ -11,7 +11,9 @@ public class E11_SignedRightShift {
 	public static void main(String[] args) {
 		int i = 0x80000000;
 		System.out.println(Integer.toBinaryString(i));
-		for(int j=0;j<(Integer.toBinaryString(i)+"").length()-1;j++){
+		int m = (Integer.toBinaryString(i)+"").length()-1;
+		//System.out.println(m);
+		for(int j=0;j<m;j++){
 			i>>=1;System.out.println(Integer.toBinaryString(i));
 		}
 	}
