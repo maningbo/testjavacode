@@ -23,7 +23,7 @@ public class TestLabel {
 				j++;
 				System.out.println("j="+j);
 				if(j==3){
-					continue;
+					continue inner;
 				}
 				System.out.println("ddddddddddddd");
 				if(j==5){
