@@ -1,0 +1,72 @@
+package thinkinginjava.chapter7ReusingClasses;
+/**
+ *  E12_Dispose.java
+ *  Description:
+ *  
+ *  CreateDate: 2015年10月13日 下午4:37:09 
+ * 
+ *  @author 马宁波
+ */
+
+class Component1c{
+	public Component1c(int i){
+		System.out.println("Component1c "+i);
+	}
+	public void dispose(){
+		System.out.println("Componenet1c dispose");
+	}
+}
+
+class Component2c{
+	public Component2c(int i){
+		System.out.println("Component2c "+i);
+	}
+	public void dispose(){
+		System.out.println("Componenet2c dispose");
+	}
+}
+
+class Component3c{
+	public Component3c(int i){
+		System.out.println("Component3c "+i);
+	}
+	public void dispose(){
+		System.out.println("Componenet3c dispose");
+	}
+}
+
+class Rootc{
+	Component1c c1 = new Component1c(1);
+	Component2c c2 = new Component2c(2);
+	Component3c c3 = new Component3c(3);
+	public Rootc(int i){System.out.println("Rootc");}
+	public void dispose(){
+		System.out.println("Rootc dispose");
+		c3.dispose();
+		c2.dispose();
+		c1.dispose();
+	}
+}
+
+class Stemc extends Rootc{
+	Component1c c1 = new Component1c(4);
+	Component2c c2 = new Component2c(5);
+	Component3c c3 = new Component3c(6);
+	public Stemc(int i) {
+		super(i);
+		System.out.println("Stemc");
+	}
+	public void dispose(){
+		System.out.println("Stemc dispose");
+		c3.dispose();
+		c2.dispose();
+		c1.dispose();
+		super.dispose();
+	}
+}
+
+public class E12_Dispose {
+	public static void main(String[] args) {
+		new Stemc(55).dispose();
+	}
+}
