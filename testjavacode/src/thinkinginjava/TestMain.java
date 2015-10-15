@@ -22,5 +22,6 @@ public class TestMain{
 		//\'应该没有这个
 		//\\转义 \
 		System.out.println("d\td\nd\rd\fd\\''''\\\b\"\\;/");
+		Integer a = new Integer(2);
 	}
 }
