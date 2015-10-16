@@ -7,6 +7,26 @@ package thinkinginjava;
  * 
  *  @author 马宁波
  */
+
+class A{
+	A(){
+		System.out.println("A");
+	}
+}
+class B{
+	B(){
+		System.out.println("B");
+	}
+}
+
+class TestConstructor{
+	A a = new A();
+	static B b = new B();
+	TestConstructor(){
+		System.out.println("TestConstructor");
+	}
+}
+
 public class TestMain{
 	public static void main(String[] args){
 		//System.getProperties().list(System.out);
@@ -23,5 +43,6 @@ public class TestMain{
 		//\\转义 \
 		System.out.println("d\td\nd\rd\fd\\''''\\\b\"\\;/");
 		Integer a = new Integer(2);
+		new TestConstructor();
 	}
 }
