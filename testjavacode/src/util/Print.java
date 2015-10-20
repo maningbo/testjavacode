@@ -12,13 +12,13 @@ public final class Print {
 	 * the same as println
 	 * @param s
 	 */
-	public static void p(String s){
-		System.out.println(s);
+	public static void p(Object o){
+		System.out.println(o+"");
 	}
-	public static void println(String s){
-		System.out.println(s);
+	public static void println(Object o){
+		System.out.println(o+"");
 	}
-	public static void print(String s){
-		System.out.print(s);
+	public static void print(Object o){
+		System.out.print(o+"");
 	}
 }
