@@ -21,5 +21,10 @@ public class TestArray {
 		int[] intarray2 = new int[8];
 		System.arraycopy(intarray1, 1, intarray2, 1, 6);
 		System.out.println(Arrays.toString(intarray2));
+		
+		String a = "2,4,5";
+		String b = "2,4,5,";
+		System.out.println(Arrays.toString(a.split(",")));
+		System.out.println(Arrays.toString(b.split(",")));
 	}
 }
