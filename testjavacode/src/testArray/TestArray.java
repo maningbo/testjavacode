@@ -26,5 +26,12 @@ public class TestArray {
 		String b = "2,4,5,";
 		System.out.println(Arrays.toString(a.split(",")));
 		System.out.println(Arrays.toString(b.split(",")));
+		System.out.println(b.split(",").length);
+		
+		int[] intarray3 = new int[8];
+		System.out.println(intarray3.length);
+		System.out.println(Arrays.toString("".split(",")));
+		System.out.println("".split(",").length);
+		System.out.println("".split(",")[0].equals(""));
 	}
 }
