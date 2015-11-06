@@ -33,5 +33,8 @@ class Sequence2{
 }
 
 public class E04_SequenceSelectorToSequence {
-
+	public static void main(String[] args) {
+		Sequence2 s = new Sequence2(10);
+		System.out.println(s.check());
+	}
 }
