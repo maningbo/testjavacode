@@ -8,7 +8,9 @@ package testjavaclass.string;
  */
 public class TestSubString {
 	public static void main(String[] args) {
-		String s = "C:/Users/manin_000/git/feelingware/src/main/webapp/jsp/back/admin.jsp";
-		System.out.println(s.substring(s.indexOf("jsp")+4, s.lastIndexOf(".")));
+		String jsppath = "C:/Users/manin_000/git/feelingware/src/main/webapp/jsp/back/admin.jsp";
+		String webrootpath = "C:/Users/manin_000/git/feelingware/src/main/webapp";
+		String relativepath = jsppath.substring(jsppath.indexOf(webrootpath)+webrootpath.length());
+		System.out.println(relativepath.substring(relativepath.indexOf("jsp")+4, relativepath.lastIndexOf(".")));
 	}
 }
