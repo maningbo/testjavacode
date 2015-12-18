@@ -16,6 +16,16 @@ import java.util.regex.Pattern;
  *  @author 马宁波
  */
 public class FileUtils {
+	public static void main(String[] args) {
+		getFilesByFolderName("D:/mnbdocuments/工作日志","");
+	}
+
+	/**
+	 * 不包含二级目录的文件
+	 * @param folderName
+	 * @param likeString
+	 * @return
+	 */
 	public static Map<String,String> getFilesByFolderName(String folderName,String likeString){
 		Map<String,String> files = new HashMap<String, String>();
 		File path = new File(folderName);//项目根目录
@@ -43,7 +53,34 @@ public class FileUtils {
 		return files;
 	}
 	
-	public static void main(String[] args) {
-		getFilesByFolderName("D:/mnbdocuments/工作日志/周报","2015年11");
+	class FileEntity{//文件实体对象
+		private Integer id;
+		private String name;
+		private String realpath;//绝对路径
+		private Integer isFile;//0表示文件，1表示文件夹
+		public Integer getId() {
+			return id;
+		}
+		public void setId(Integer id) {
+			this.id = id;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public String getRealpath() {
+			return realpath;
+		}
+		public void setRealpath(String realpath) {
+			this.realpath = realpath;
+		}
+		public Integer getIsFile() {
+			return isFile;
+		}
+		public void setIsFile(Integer isFile) {
+			this.isFile = isFile;
+		}
 	}
 }
