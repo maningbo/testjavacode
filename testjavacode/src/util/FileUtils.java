@@ -2,8 +2,10 @@ package util;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -82,5 +84,39 @@ public class FileUtils {
 		public void setIsFile(Integer isFile) {
 			this.isFile = isFile;
 		}
+	}
+	
+	/**
+	 * 包含二级目录的文件
+	 * @param folderName
+	 * @param likeString
+	 * @return
+	 */
+	public static List<FileEntity> getFilesByFolderNameContainSubDirectory(String folderName,String likeString){
+		List<FileEntity> result = new ArrayList<FileUtils.FileEntity>();
+		Map<String,String> files = new HashMap<String, String>();
+		File path = new File(folderName);//项目根目录
+		String[] list;
+		if(null==likeString||"".equals(likeString)){
+			list = path.list();
+		}else{
+			final String rules = "\\S*"+likeString+"\\S*";
+			list = path.list(new FilenameFilter(){
+				private Pattern pattern = Pattern.compile(rules);
+				public boolean accept(File dir,String name){
+					return pattern.matcher(name).matches();
+				}
+			});
+		}
+		if(list!=null&&list.length>0){
+			files.put("havefile", "1");
+			Arrays.sort(list,String.CASE_INSENSITIVE_ORDER);
+			for (String dirItem : list) {
+				System.out.println(dirItem);
+			}
+		}else{
+			files.put("havefile", "0");
+		}
+		return result;
 	}
 }
