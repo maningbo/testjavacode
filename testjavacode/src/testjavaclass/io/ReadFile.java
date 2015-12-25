@@ -1,4 +1,7 @@
 package testjavaclass.io;
+
+import java.io.File;
+
 /**
  *  ReadFile.java
  *  Description:
@@ -8,5 +11,8 @@ package testjavaclass.io;
  *  @author 马宁波
  */
 public class ReadFile {
-
+	public static void main(String[] args) {
+		File file = null;
+		System.out.println(file.exists());
+	}
 }
