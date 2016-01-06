@@ -25,6 +25,9 @@ time1 = datetime.datetime.strptime("2015-12-31 00:00:00", "%Y-%m-%d %H:%M:%S")
 time2 = time1+datetime.timedelta(minutes=-int(1440))
 timestring = datetime.datetime.strftime(time2,"%Y-%m-%d")
 print timestring
+time21 = time1+datetime.timedelta(days=int(1))
+timestring1 = datetime.datetime.strftime(time21,"%Y-%m-%d")
+print timestring1
 
 #数值
 print int('1')
@@ -35,6 +38,7 @@ numbertest = 0
 numbertest+=1
 print numbertest
 print (0==0.0000)
+print (0!=0.0000)
 # print int(None)
 
 #流程控制语句
