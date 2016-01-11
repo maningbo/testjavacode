@@ -11,7 +11,7 @@ for i in range(5):
         
 # str,split函数
 print "dfsdf,sdfsdf".split(',',1)
-array = "dfsdf".split(',',1);
+array = "dfsdf,锁定,llll".split(',');
 if array:
     print len(array)
     print array[0]
@@ -45,3 +45,30 @@ print (0!=0.0000)
 stefsfs = None
 stefsfs = 0 if (stefsfs==None) else stefsfs
 print 0 if (stefsfs==None) else stefsfs
+
+#tuple元组操作
+L = ('spam1', 'spam2', 'spam3', 'Spam', 'SPAM!')
+print L
+print L[:-1]
+print L[1:]
+print L[:2]
+print len(L[:2])
+L = L[:1]+L[2:]
+print L
+print len(('11',))
+M = (('dfs','fds'),('fsd','fsdf'))
+N = ();
+N = N + tuple(M[0])+tuple(M[1])
+print N
+
+#list列表操作
+list = []
+list.append(L)
+list.append(L)
+print list
+print len(list)
+
+#字符串
+teststr = '，'
+print teststr[0:(len(teststr)-1)]
+print teststr[0:(len(teststr)-4)]
