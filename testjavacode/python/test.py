@@ -67,8 +67,20 @@ list.append(L)
 list.append(L)
 print list
 print len(list)
+for i in range(len(list)):
+    print list[i]
+for i in list:
+    print i
 
 #字符串
-teststr = '，'
+teststr = '0123456789'
 print teststr[0:(len(teststr)-1)]
 print teststr[0:(len(teststr)-4)]
+
+#字典操作
+dicvar = {}
+dicvar['one'] = ['1dsf','1sdfs','1fsdf']
+dicvar['two'] = ['2dsf','2sdfs','2fsdf']
+for i in dicvar:
+    print i
+    print dicvar[i]
