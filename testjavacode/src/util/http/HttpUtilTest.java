@@ -14,8 +14,8 @@ public class HttpUtilTest {
 		// 发送 GET 请求
 		String s = HttpRequest.sendGet(
 				"http://1212.ip138.com/ic.asp",//http://www.ip138.com,http://www.baidu.com
-				"");
-		System.out.println(new String(s.getBytes("gb2312"),"utf-8"));//乱码
+				"","gb2312");
+		System.out.println(s);
 		String s1 = HttpRequest.sendGet(
 				"http://www.baidu.com",//http://www.ip138.com,http://www.baidu.com
 				"");
