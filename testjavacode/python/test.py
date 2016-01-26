@@ -30,6 +30,7 @@ timestring1 = datetime.datetime.strftime(time21,"%Y-%m-%d")
 print timestring1
 
 #数值
+print '数值开始'
 print int('1')
 print abs(-2.5) #取绝对值
 print (2-9)/float(8)
@@ -39,6 +40,9 @@ numbertest+=1
 print numbertest
 print (0==0.0000)
 print (0!=0.0000)
+print int(189790.6000)
+print round(189790.6000,2)
+print '数值结束'
 # print int(None)
 
 #流程控制语句
