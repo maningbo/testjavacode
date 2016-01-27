@@ -1,5 +1,6 @@
 #coding:utf-8
 import datetime
+import string
 # for循环
 # list2 = [1, 2, 3, 4, 5 ]
 # for a in list2:
@@ -10,8 +11,9 @@ for i in range(5):
     print i
         
 # str,split函数
+print 'str,split函数开始'
 print "dfsdf,sdfsdf".split(',',1)
-array = "dfsdf,锁定,llll".split(',');
+array = "dfsdf".split(',');
 if array:
     print len(array)
     print array[0]
@@ -19,6 +21,8 @@ if array:
         print a
 teststr = 'sdfs,,'
 print teststr[0:(len(teststr)-1)]
+print string.splitfields("fsdfs", ",")
+print 'str,split函数结束'
         
 #日期转化
 time1 = datetime.datetime.strptime("2015-12-31 00:00:00", "%Y-%m-%d %H:%M:%S")
@@ -42,6 +46,7 @@ print (0==0.0000)
 print (0!=0.0000)
 print int(189790.6000)
 print round(189790.6000,2)
+print int(round(189790.46))#四舍五入取整
 print '数值结束'
 # print int(None)
 
