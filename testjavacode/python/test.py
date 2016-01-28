@@ -45,7 +45,9 @@ print numbertest
 print (0==0.0000)
 print (0!=0.0000)
 print int(189790.6000)
-print round(189790.6000,2)
+print round(189790.6123,2)
+print round(189790.6123,1)
+print round(189790.6123)
 print int(round(189790.46))#四舍五入取整
 print '数值结束'
 # print int(None)
@@ -82,9 +84,13 @@ for i in list:
     print i
 
 #字符串
-teststr = '0123456789'
+print '字符串操作开始'
+teststr = '0123456789'.lower()
 print teststr[0:(len(teststr)-1)]
 print teststr[0:(len(teststr)-4)]
+print 'dfSdf'.lower()=='DFSDF'.lower()#比较时忽略大小写
+print '12Ds'.lower()=='12DS'.lower()#比较时忽略大小写
+print '字符串操作结束'
 
 #字典操作
 dicvar = {}
