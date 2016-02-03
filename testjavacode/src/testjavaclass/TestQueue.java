@@ -7,7 +7,7 @@ import java.util.Queue;
 /**
  *  TestQueue.java
  *  Description:
- *  
+ *  参考链接：http://www.cnblogs.com/end/archive/2012/10/25/2738489.html
  *  CreateDate: 2016年2月3日 下午2:51:30 
  * 
  *  @author 马宁波
