@@ -30,5 +30,8 @@ public class TestSplit {
 			System.out.println(sss[0]);
 			System.out.println(sss[1]);
 		}
+		
+		System.out.println("".split(",").length);
+		System.out.println("ddd,".split(",").length);
 	}
 }

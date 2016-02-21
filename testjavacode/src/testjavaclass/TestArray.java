@@ -33,5 +33,7 @@ public class TestArray {
 		System.out.println(Arrays.toString("".split(",")));
 		System.out.println("".split(",").length);
 		System.out.println("".split(",")[0].equals(""));
+		System.out.println((new String[]{}).length);
+		System.out.println((new String[]{""}).length);
 	}
 }
