@@ -14,5 +14,6 @@ public class ZhuanMa {
 	public static void main(String[] args) throws UnsupportedEncodingException {
 		String s = "2015-12-04-模板.docx";
 		System.out.println(new String(s.getBytes("UTF-8"),"ISO-8859-1"));
+		System.out.println(new String(s.getBytes("GBK"),"ISO-8859-1"));
 	}
 }

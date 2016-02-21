@@ -14,7 +14,7 @@ import javax.crypto.Cipher;
  *  @author 马宁波
  */
 public class StringEncodedecode {
-	private static String strDefaultKey = "Tony";
+	private static String strDefaultKey = "fsfiiifds";
 
 	   
     private Cipher encryptCipher = null;
@@ -115,9 +115,10 @@ public class StringEncodedecode {
 
     public static void main(String[] args) {
      try {
-            String test = "松岛枫";
+            String test = "的 +d  d";
             System.out.println("自定义秘钥");
-            StringEncodedecode des = new StringEncodedecode("ddddsdd");// 自定义密钥
+//            StringEncodedecode des = new StringEncodedecode("ddddsdd");// 自定义密钥
+            StringEncodedecode des = new StringEncodedecode();// 自定义密钥
             System.out.println("加密前的字符：" + test);
             System.out.println("加密后的字符：" + des.encrypt(test));
             System.out.println("解密后的字符：" + des.decrypt(des.encrypt(test)));
