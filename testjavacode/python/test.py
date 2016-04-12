@@ -90,6 +90,7 @@ print teststr[0:(len(teststr)-1)]
 print teststr[0:(len(teststr)-4)]
 print 'dfSdf'.lower()=='DFSDF'.lower()#比较时忽略大小写
 print '12Ds'.lower()=='12DS'.lower()#比较时忽略大小写
+print '123456'[:-3]
 print '字符串操作结束'
 
 #字典操作
