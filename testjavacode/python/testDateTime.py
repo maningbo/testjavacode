@@ -8,6 +8,10 @@ Created on 2016年3月24日
 from datetime import timedelta,date
 import time
 from calendar import monthrange
+import os
+
+print sys.argv[1]
+os.system("echo 343242342")
 
 dt='2016-03-24'
 timestamp = int(time.mktime(time.strptime(str(dt), "%Y-%m-%d")))
