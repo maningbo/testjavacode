@@ -14,5 +14,6 @@ public class TestTimeAndDate {
 	public static void main(String[] args) {
 		System.out.println(System.currentTimeMillis());
 		System.out.println(new Date().getTime()/1000);//转换为UNIX时间戳
+		Long a = new Date().getTime()/1000;
 	}
 }
