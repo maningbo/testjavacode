@@ -3,8 +3,109 @@
 <head>
 <meta charset="UTF-8">
 <title>生成随机密码</title>
+<script type="text/javascript">
+//方法一
+//generateRandomPasswordBymaningbo()//随机生成minimumLengthOfPassword到maximumLengthOfPassword位同时包含大小写字母、数字、特殊字符的密码，返回密码字符串
+//方法二
+//this.value=valuereplace(this.value)//过滤输入框的非法字符，返回过滤后的字符串
+//方法三
+//密码规则
+//必须包含大写字母、小写字母、数字、特殊字符四种字符类型中的任意三种或三种以上，密码的长度在 minimumLengthOfPassword-maximumLengthOfPassword位
+//verifyPassword(password)//验证字符串是否符合指定规则，返回验证结果，true通过验证，false未通过验证
+
+var generateRandomPasswordBymaningbo_specialchar = ['~','`','!','@','#','$','%','^','&','*','(',')','-','_','+','=',
+                                                    '{','}','[',']','|','\\',':',';','\'','\"','<','>',',','.','?','/'];//特殊字符
+var generateRandomPasswordBymaningbo_digit = ['0','1','2','3','4','5','6','7','8','9'];//阿拉伯数字
+var generateRandomPasswordBymaningbo_capital = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N',
+                                                'O','P','Q','R','S','T','U','V','W','X','Y','Z'];//大写字母
+var generateRandomPasswordBymaningbo_lowercase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n',
+                                                  'o','p','q','r','s','t','u','v','w','x','y','z'];//小写字母
+var minimumLengthOfPassword = 15;//密码的最小长度
+var maximumLengthOfPassword = 20;//密码的最大长度
+//方法一
+function generateRandomPasswordBymaningbo(){//随机生成8到20位同时包含大小写字母、数字、特殊字符的密码，返回密码字符串
+	var password = "";
+	var plength = Math.floor(Math.random()*(maximumLengthOfPassword-minimumLengthOfPassword+1))
+					+minimumLengthOfPassword;//密码长度，可均衡获取8到20的随机整数
+	do{
+		password = "";
+		for(var i=0;i<plength;i++){
+			//密码来自哪个数组，可均衡获取0到3的随机整数，分别对应密码的四个组成部分
+			var plaizi = Math.floor(Math.random()*4);
+			if(plaizi==0){
+				password+=generateRandomPasswordBymaningbo_specialchar[Math.floor(Math.random()*generateRandomPasswordBymaningbo_specialchar.length)];
+			}
+			if(plaizi==1){
+				password+=generateRandomPasswordBymaningbo_digit[Math.floor(Math.random()*generateRandomPasswordBymaningbo_digit.length)];
+			}
+			if(plaizi==2){
+				password+=generateRandomPasswordBymaningbo_capital[Math.floor(Math.random()*generateRandomPasswordBymaningbo_capital.length)];
+			}
+			if(plaizi==3){
+				password+=generateRandomPasswordBymaningbo_lowercase[Math.floor(Math.random()*generateRandomPasswordBymaningbo_lowercase.length)];
+			}
+		}
+	}while(!verifyPassword(password));
+	return password;
+}
+//方法二
+function valuereplace(value){//过滤输入框的非法字符，返回过滤后的字符串，仅允许输入半角特殊字符、阿拉伯数字、大写字母、小写字母
+	var regexp = /[^\a-\z\A-\Z0-9\`\~\!\@\#\$\%\^\&\*\(\)\-\_\=\+\{\}\[\]\\\|\:\;\'\"\<\>\.\,\?\/]/g;
+	return value.replace(regexp,'');
+}
+//方法三
+//密码规则
+//必须包含大写字母、小写字母、数字、特殊字符四种字符类型中的任意三种或三种以上，密码的长度在 8-20 位
+function verifyPassword(password){//验证字符串是否符合指定规则，返回验证结果，true通过验证，false未通过验证
+	//是否仅包含大小写字母、数字、英文特殊符号
+	var verify_pasword = /^[\a-\z\A-\Z0-9\`\~\!\@\#\$\%\^\&\*\(\)\-\_\=\+\{\}\[\]\\\|\:\;\'\"\<\>\.\,\?\/]+$/;
+	//是否包含英文特殊字符
+	var verify_specialchar = /[\`\~\!\@\#\$\%\^\&\*\(\)\-\_\=\+\{\}\[\]\\\|\:\;\'\"\<\>\.\,\?\/]/;
+	//是否包含数字
+	var verify_digit = /[0-9]/;
+	//是否包含大写字母
+	var verify_capital = /[\A-\Z]/;
+	//是否包含小写字母
+	var verify_lowercase = /[\a-\z]/;
+	var plength = password.length;//密码长度
+	if(verify_pasword.test(password)&&plength>=minimumLengthOfPassword&&plength<=maximumLengthOfPassword){
+		var i = 0;
+		if(verify_specialchar.test(password)){
+			i++;
+		}
+		if(verify_digit.test(password)){
+			i++;
+		}
+		if(verify_capital.test(password)){
+			i++;
+		}
+		if(verify_lowercase.test(password)){
+			i++;
+		}
+		if(i>=3){
+			return true;//符合规则
+		}else{
+			return false;
+		}
+	}else{
+		return false;//不符合规则
+	}
+}
+</script>
 </head>
 <body>
-
+最小长度：<input type="text" id="minLength" value="15">
+最大长度：<input type="text" id="maxLength" value="20">
+<br>
+<button id="creatPasswordButton">生成随机密码</button>
+<br>
+<textarea id="viewPassword" cols="50"></textarea>
+<script type="text/javascript">
+document.getElementById('creatPasswordButton').onclick=function(){
+	minimumLengthOfPassword = document.getElementById('minLength').value*1;//需要乘1来转化成数字
+	maximumLengthOfPassword = document.getElementById('maxLength').value*1;//需要乘1来转化成数字
+	document.getElementById('viewPassword').innerText=generateRandomPasswordBymaningbo();
+};
+</script>
 </body>
 </html>
