@@ -97,11 +97,24 @@ function verifyPassword(password){//验证字符串是否符合指定规则，�
 最小长度：<input type="text" id="minLength" value="15">
 最大长度：<input type="text" id="maxLength" value="20">
 <br>
+特殊字符<input type="checkbox" name="mimazuchengys" value="1">
+阿拉伯数字<input type="checkbox" name="mimazuchengys" value="2">
+大写字母<input type="checkbox" name="mimazuchengys" value="3">
+小写字母<input type="checkbox" name="mimazuchengys" value="4">
+<br>
 <button id="creatPasswordButton">生成随机密码</button>
 <br>
 <textarea id="viewPassword" cols="50"></textarea>
 <script type="text/javascript">
 document.getElementById('creatPasswordButton').onclick=function(){
+	var mmysobjs =  document.getElementsByName('mimazuchengys');
+	var mmysArray = new Array();
+	for(var i=0;i<mmysobjs.length;i++){
+		if(mmysobjs[i].checked){
+			mmysArray.push(mmysobjs[i].value);
+		}
+	}
+	alert(mmysArray.toString());
 	minimumLengthOfPassword = document.getElementById('minLength').value*1;//需要乘1来转化成数字
 	maximumLengthOfPassword = document.getElementById('maxLength').value*1;//需要乘1来转化成数字
 	document.getElementById('viewPassword').innerText=generateRandomPasswordBymaningbo();
