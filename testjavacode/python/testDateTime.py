@@ -16,9 +16,10 @@ if __name__=='__main__':
     os.system("echo 343242342")
     
     dt='2016-03-24'
-    timestamp = int(time.mktime(time.strptime(str(dt), "%Y-%m-%d")))
+    timestamp = int(time.mktime(time.strptime(str(dt), "%Y-%m-%d")))#字符串转时间戳
     print dt
     print timestamp
+    print time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(timestamp))#时间戳转字符串
     timesplit=dt.split("-")
     day=date(int(timesplit[0]),int(timesplit[1]),int(timesplit[2]))
     goal = timedelta(days=-60)
