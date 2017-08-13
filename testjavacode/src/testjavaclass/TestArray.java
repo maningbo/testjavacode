@@ -1,6 +1,9 @@
 package testjavaclass;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 
 /**
  *  TestArray.java
@@ -35,5 +38,16 @@ public class TestArray {
 		System.out.println("".split(",")[0].equals(""));
 		System.out.println((new String[]{}).length);
 		System.out.println((new String[]{""}).length);
+		
+		String[] strArray = new String[12];
+		strArray[0] = "1";
+		System.out.println(Arrays.toString(strArray));
+		
+		List<String> strList = new ArrayList<String>();
+		strList.add("1");
+		System.out.println(strList.toString());
+		
+		
+		
 	}
 }
